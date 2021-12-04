@@ -18,8 +18,8 @@ public class Musinsa {
         String user = "root";
         String password = "dnflwlq0527!";
         String sql_selectAll = "select * from musinsa";
-        String sql_update = "update musinsa set cloth=?, brand=?, price=? where ranking=?";
-        String sql_insert  = "insert into musinsa(ranking, cloth, brand, price) values (?,?,?,?)";
+        String sql_update = "update musinsa set cloth=?, brand=?, price=?, image=? where ranking=?";
+        String sql_insert  = "insert into musinsa(ranking, cloth, brand, price, image) values (?,?,?,?,?)";
 
 
         Connection connection = null;
@@ -65,17 +65,27 @@ public class Musinsa {
                     // 만약 가격이 두개 이상 존재한다면 가장 마지막 값이 현재 가격이다
                     target = dummy[dummy.length - 1];
                 }
-                target = target.substring(0,target.length()-1); // 마지막 "원" 제거
-                target = target.replaceAll("\\,",""); // , 콤마 제거
+                target = target.substring(0, target.length() - 1); // 마지막 "원" 제거
+                target = target.replaceAll("\\,", ""); // , 콤마 제거
                 price.add(Integer.valueOf(target));
             }
+
+//            이미지 찾기
+            Elements cl_img = doc.select(".lazyload");
+            ArrayList<String> image = new ArrayList<>();
+            for (Element element : cl_img) {
+                image.add(element.attr("data-original")); // attr 속성값을 통하여 이미지 src 를 찾는다
+            }
+
+
 
             // 결과값 확인 로깅
 //            for (int i = 0; i < cloth.size(); i++) {
 //                System.out.println("\n랭킹 : "+(i+1)+
 //                        "\n옷 : "+cloth.get(i)+
 //                        "\n브랜드 : "+brand.get(i)+
-//                        "\n가격 : "+price.get(i));
+//                        "\n가격 : "+price.get(i)+
+//                        "\n이미지 : "+image.get(i));
 //            }
             connection = DriverManager.getConnection(sqlUrl, user, password); // db 에 접속
             pstmt = connection.prepareStatement(sql_selectAll);
@@ -87,6 +97,7 @@ public class Musinsa {
                 for (int i = 0; i < cloth.size(); i++) {
                     pstmt.setString(1, cloth.get(i)); // 옷이름
                     pstmt.setString(2, brand.get(i)); // 브랜드 이름
+                    pstmt.setString(5,image.get(i)); // 이미지
                     pstmt.setInt(3,price.get(i)); // 가격
                     pstmt.setInt(4,i+1); // 랭킹
                     pstmt.executeUpdate(); // update 쿼리 수행
@@ -99,6 +110,7 @@ public class Musinsa {
                     pstmt.setInt(4,price.get(i)); // 가격
                     pstmt.setString(2, cloth.get(i)); // 옷이름
                     pstmt.setString(3, brand.get(i)); // 브랜드 이름
+                    pstmt.setString(5,image.get(i));
                     pstmt.executeUpdate(); // insert 쿼리 수행
                 }
             }
@@ -115,5 +127,6 @@ public class Musinsa {
                 e.printStackTrace();
             }
         }
+
     }
 }
