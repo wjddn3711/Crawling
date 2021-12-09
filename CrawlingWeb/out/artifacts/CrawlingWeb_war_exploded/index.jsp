@@ -30,7 +30,7 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
           <a href="#menu" class="menuToggle"><span>Menu</span></a>
           <div id="menu">
             <ul>
-              <li><a href="index.html">Home</a></li>
+              <li><a href="index.jsp">Home</a></li>
               <li><a href="learn.html">Learn More</a></li>
               <li><a href="elements.html">Elements</a></li>
               <li><a href="#">Sign Up</a></li>
