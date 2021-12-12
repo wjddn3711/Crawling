@@ -59,6 +59,9 @@ public class Greating {
         String main = "#catecd_001007";
         ArrayList<String> mainName = getName(main);
         ArrayList<Integer> mainPrice = getPrice(main);
+        ArrayList<String> mainImg = getImg(main);
+
+        String 
     }
 
 }
