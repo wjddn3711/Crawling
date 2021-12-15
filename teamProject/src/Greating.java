@@ -10,6 +10,7 @@ public class Greating {
     static String name = " .card-content__title"; // url 에서 이름을 담고 있는 css class
     static String price = " .card-content__price-discount"; // url 에서 가격을 담고 있는 css class
     static String img = " .lazyload";
+    static String sub = " .card-content__text";
     public static Document connect(){
         String url = "https://www.zipbanchan.co.kr/shop/goods/goods_list.php";
         try {
@@ -43,6 +44,14 @@ public class Greating {
         }
         return result;
     }
+    public static void getSub (String page){
+        ArrayList<String> result = new ArrayList<String>();
+        Document doc = connect();
+        Elements subs = doc.select(page+sub);
+        for (Element element : subs) {
+            System.out.println(element.text());
+        }
+    }
 
     public static ArrayList<String> getImg (String page){
         ArrayList<String> result = new ArrayList<String>();
@@ -61,7 +70,18 @@ public class Greating {
         ArrayList<Integer> mainPrice = getPrice(main);
         ArrayList<String> mainImg = getImg(main);
 
-        String 
+        String soup = "#catecd_001006";
+        ArrayList<String> soupName = getName(soup);
+        ArrayList<Integer> soupPrice = getPrice(soup);
+        ArrayList<String> soupImg = getImg(soup);
+        getSub(soup);
+//        for (int i = 0; i < soupName.size(); i++) {
+//            System.out.println("국 이름 : "+soupName.get(i));
+//            System.out.println("국 가격 : "+soupPrice.get(i));
+//            System.out.println("국 이미지 : "+ soupImg.get(i));
+//
+//        }
+
     }
 
 }

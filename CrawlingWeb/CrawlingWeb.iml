@@ -9,6 +9,7 @@
         <webroots>
           <root url="file://$MODULE_DIR$/web" relative="/" />
         </webroots>
+        <sourceRoots />
       </configuration>
       <facet type="webservices" name="WebServices">
         <configuration ws.engine="Apache Axis" />
@@ -22,6 +23,7 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="jstl" level="project" />
     <orderEntry type="library" name="jsoup-1.14.3" level="project" />
     <orderEntry type="library" name="mysql-connector-java-5.1" level="project" />
     <orderEntry type="library" name="annotations-api" level="project" />

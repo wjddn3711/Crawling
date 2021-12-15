@@ -7,6 +7,12 @@
         <element id="directory" name="classes">
           <element id="module-output" name="CrawlingWeb" />
         </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="jstl" />
+          <element id="library" level="project" name="jsoup-1.14.3" />
+          <element id="library" level="project" name="mysql-connector-java-5.1" />
+          <element id="library" level="project" name="annotations-api" />
+        </element>
       </element>
     </root>
   </artifact>
