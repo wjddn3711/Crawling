@@ -15,7 +15,7 @@ public class MemberDAO {
     ResultSet rs;
 
     String sql_selectOne = "select * from users where uid = ?";
-
+    String sql_insert = "insert into users(uid,upw,uname,uemail) values (?,?,?,?)";
     public boolean selectOne(MemberVO vo){
         conn = JDBCUtil.connect();
         try {
@@ -38,4 +38,23 @@ public class MemberDAO {
         return false;
     }
 
+    public boolean insert(MemberVO vo) {
+        conn = JDBCUtil.connect();
+        try {
+            pstmt=conn.prepareStatement(sql_insert);
+            pstmt.setString(1, vo.getUid());
+            pstmt.setString(2, vo.getUpw());
+            pstmt.setString(3, vo.getUname());
+            pstmt.setString(4,vo.getUemail());
+            pstmt.executeUpdate();
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+            System.out.println("MemberDAO insert중 문제발생!");
+            return false;
+        } finally {
+            JDBCUtil.disconnect(pstmt,conn);
+        }
+        return true;
+    }
 }

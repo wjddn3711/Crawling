@@ -7,12 +7,15 @@ public class MemberVO {
     private String uemail;
     private int ufav;
 
-    public MemberVO(String uid, String upw, String uname, String uemail, int ufav) {
-        this.uid = uid;
-        this.upw = upw;
-        this.uname = uname;
-        this.uemail = uemail;
-        this.ufav = ufav;
+    @Override
+    public String toString() {
+        return "MemberVO{" +
+                "uid='" + uid + '\'' +
+                ", upw='" + upw + '\'' +
+                ", uname='" + uname + '\'' +
+                ", uemail='" + uemail + '\'' +
+                ", ufav=" + ufav +
+                '}';
     }
 
     public void setUid(String uid) {

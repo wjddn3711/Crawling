@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="mytag" tagdir="/WEB-INF/tags" %>
 <!DOCTYPE HTML>
 <!--
 Spectral by HTML5 UP
@@ -34,11 +35,10 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
                     <a href="#menu" class="menuToggle"><span>Menu</span></a>
                     <div id="menu">
                         <ul>
-                            <li><a href="index.jsp">Home</a></li>
-                            <li><a href="learn.html">Learn</a></li>
+                            <li><a href="main.do">Home</a></li>
+                            <li><a href="learn.html">Learn More</a></li>
                             <li><a href="elements.html">Elements</a></li>
-                            <li><a href="new.jsp">Sign Up</a></li>
-                            <li><a href="login.jsp">Log In</a></li>
+                            <mytag:login/>
                         </ul>
                     </div>
                 </li>
@@ -56,7 +56,7 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
             <div class="inner">
                 <section>
                     <h4>Log In</h4>
-                    <form method="post" action="controller.jsp?action=new">
+                    <form method="post" action="login.do">
                         <div class="row gtr-uniform">
                             <div class="col-6 col-12-xsmall">
                                 ID<input type="text" name="uid" id="demo-name" placeholder="ID를 입력하세요" required/>

@@ -33,8 +33,31 @@ public class FrontController extends HttpServlet {
         if(command.equals("main")){
             response.sendRedirect("main.jsp");
         }
-        else if (command.equals("new")){
+        else if (command.equals("login")){
+            try{
+                forward = new LoginAction().execute(request, response);
+            }catch (Exception e){
+                System.out.println("로그인 진행중 문제 발생!");
+            }
+        }
+        else if (command.equals("new")) {
+            try{
+                forward = new NewAction().execute(request, response);
+            }catch (Exception e){
+                System.out.println("회원가입 진행중 문제 발생!");
+            }
+        }
 
+        if(forward!=null){
+            if(forward!=null){
+                if(forward.isRedirect()){
+                    response.sendRedirect(forward.getPath());
+                }
+                else{
+                    RequestDispatcher dispatcher = request.getRequestDispatcher(forward.getPath());
+                    dispatcher.forward(request,response);
+                }
+            }
         }
     }
 }

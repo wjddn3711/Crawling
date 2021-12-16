@@ -69,12 +69,12 @@ public class Greating {
         ArrayList<String> mainName = getName(main);
         ArrayList<Integer> mainPrice = getPrice(main);
         ArrayList<String> mainImg = getImg(main);
-
+        // 국
         String soup = "#catecd_001006";
         ArrayList<String> soupName = getName(soup);
         ArrayList<Integer> soupPrice = getPrice(soup);
         ArrayList<String> soupImg = getImg(soup);
-        getSub(soup);
+
 //        for (int i = 0; i < soupName.size(); i++) {
 //            System.out.println("국 이름 : "+soupName.get(i));
 //            System.out.println("국 가격 : "+soupPrice.get(i));

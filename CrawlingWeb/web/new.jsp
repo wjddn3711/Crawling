@@ -28,7 +28,7 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
 
     <!-- Header -->
     <header id="header">
-        <h1><a href="index.jsp">FASHCOM</a></h1>
+        <h1><a href="main.do">FASHCOM</a></h1>
         <nav id="nav">
             <ul>
                 <li class="special">
@@ -55,19 +55,23 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
         <section class="wrapper style5">
             <div class="inner">
                 <section>
-                    <h4>Log In</h4>
-                    <form method="post" action="login.do">
+                    <h4>회원가입 하기</h4>
+                    <form method="post" action="new.do">
                         <div class="row gtr-uniform">
                             <div class="col-6 col-12-xsmall">
-                                ID<input type="text" name="uid" id="demo-name" placeholder="ID를 입력하세요" required/>
+                                ID<input type="text" name="uid" id="demo-id" placeholder="ID를 입력하세요" required/>
                             </div>
                             <div class="col-6 col-12-xsmall">
-                                PW<input type="password" name="upw" id="demo-email" placeholder="비밀번호를 입력하세요" required/>
-
+                                PW<input type="password" name="upw" id="demo-password" placeholder="비밀번호를 입력하세요" required/>
                             </div>
                             <div class="col-6 col-12-xsmall">
-                                <input type="submit" value="로그인">
-                                <button><a href="new.jsp">회원 가입하기</a></button>
+                                NAME<input type="text" name="uname" id="demo-name" placeholder="이름을 입력하세요" required/>
+                            </div>
+                            <div class="col-6 col-12-xsmall">
+                                EMAIL<input type="email" name="uemail" id="demo-email" placeholder="이메일을 입력하세요" required/>
+                            </div>
+                            <div class="col-6 col-12-xsmall">
+                                <input type="submit" value="Sign up">
                             </div>
                         </div>
                     </form>

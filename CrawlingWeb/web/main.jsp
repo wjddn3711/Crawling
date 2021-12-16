@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="mytag" tagdir="/WEB-INF/tags" %>>
 <!DOCTYPE HTML>
 <!--
 Spectral by HTML5 UP
@@ -27,11 +28,10 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
                     <a href="#menu" class="menuToggle"><span>Menu</span></a>
                     <div id="menu">
                         <ul>
-                            <li><a href="index.jsp">Home</a></li>
+                            <li><a href="main.do">Home</a></li>
                             <li><a href="learn.html">Learn More</a></li>
                             <li><a href="elements.html">Elements</a></li>
-                            <li><a href="#">Sign Up</a></li>
-                            <li><a href="login.jsp">Log In</a></li>
+                            <mytag:login/>
                         </ul>
                     </div>
                 </li>
@@ -47,7 +47,7 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
                 All clothes info <br />
                 provided by <a href="https://store.musinsa.com/app/">Musinsa</a>.</p>
             <ul class="actions special">
-                <li><a href="#" class="button primary">Sign-Up</a></li>
+                <li><a href="new.jsp" class="button primary">Sign-Up</a></li>
                 <%--        회원가입 페이지로 이동--%>
             </ul>
         </div>
@@ -91,7 +91,7 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
                 <p>Learn more 를 통해 과정을 살펴보세요</p>
             </header>
             <ul class="actions stacked">
-                <li><a href="#" class="button fit primary">Sign-Up</a></li>
+                <li><a href="new.jsp" class="button fit primary">Sign-Up</a></li>
                 <li><a href="learn.html" class="button fit">Learn More</a></li>
             </ul>
         </div>
