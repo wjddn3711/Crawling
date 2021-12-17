@@ -1,5 +1,10 @@
 package controller;
 
+import controller.common.ActionForward;
+import controller.users.LoginAction;
+import controller.users.LogoutAction;
+import controller.users.NewAction;
+
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
@@ -45,6 +50,13 @@ public class FrontController extends HttpServlet {
                 forward = new NewAction().execute(request, response);
             }catch (Exception e){
                 System.out.println("회원가입 진행중 문제 발생!");
+            }
+        }
+        else if(command.equals("logout")){
+            try{
+                forward = new LogoutAction().execute(request, response);
+            }catch (Exception e){
+                System.out.println("로그아웃 진행중 문제 발생!");
             }
         }
 

@@ -1,5 +1,7 @@
-package controller;
+package controller.users;
 
+import controller.common.Action;
+import controller.common.ActionForward;
 import model.member.MemberDAO;
 import model.member.MemberVO;
 
@@ -9,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-public class NewAction implements Action{
+public class NewAction implements Action {
     @Override
     public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         ActionForward forward = null;
@@ -29,8 +31,9 @@ public class NewAction implements Action{
             forward.setRedirect(true); // DB에 저장되었으니 sendredirect
         }
         else{
+            response.setContentType("text/html; charset=UTF-8");
             PrintWriter out = response.getWriter();
-            out.println("<script>alert('Please Enter other ID!');history.go(-1);</script>");
+            out.println("<script>alert('회원 가입 실패!');history.go(-1);</script>");
         }
 
         return forward;

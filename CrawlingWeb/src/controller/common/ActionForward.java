@@ -1,4 +1,4 @@
-package controller;
+package controller.common;
 
 public class ActionForward {
     private boolean redirect; // 방식 (데이터 전송 여부)

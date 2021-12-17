@@ -20,8 +20,8 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
 <div id="page-wrapper">
 
     <!-- Header -->
-    <header id="header" class="alt">
-        <h1><a href="index.jsp">FashCom</a></h1>
+    <header id="header">
+        <h1><a href="index.jsp">FASHCOM</a></h1>
         <nav id="nav">
             <ul>
                 <li class="special">
