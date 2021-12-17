@@ -22,9 +22,8 @@ public class Greating {
         return null;
     }
 
-    public static ArrayList<String> getName (String page){ // css 쿼리중 각 항목에 해당하는 쿼리를 뽑아 이름을 반환한다
+    public static ArrayList<String> getName (String page, Document doc){ // css 쿼리중 각 항목에 해당하는 쿼리를 뽑아 이름을 반환한다
         ArrayList<String> result = new ArrayList<String>();
-        Document doc = connect();
         Elements names = doc.select(page+name);
         for (Element name : names) {
             result.add(name.text());
@@ -32,9 +31,8 @@ public class Greating {
         return result;
     }
 
-    public static ArrayList<Integer> getPrice (String page){
+    public static ArrayList<Integer> getPrice (String page, Document doc){
         ArrayList<Integer> result = new ArrayList<>();
-        Document doc = connect();
         Elements prices = doc.select(page+price);
         for (Element price : prices) {
             String target = price.text();
@@ -44,18 +42,17 @@ public class Greating {
         }
         return result;
     }
-    public static void getSub (String page){
+    public static ArrayList<String> getSub (String page, Document doc){
         ArrayList<String> result = new ArrayList<String>();
-        Document doc = connect();
         Elements subs = doc.select(page+sub);
         for (Element element : subs) {
-            System.out.println(element.text());
+            result.add(element.text());
         }
+        return result;
     }
 
-    public static ArrayList<String> getImg (String page){
+    public static ArrayList<String> getImg (String page, Document doc){
         ArrayList<String> result = new ArrayList<String>();
-        Document doc = connect();
         Elements images = doc.select(page+img);
         for (Element image : images) {
             result.add(image.attr("data-src")); // data-src 속성 값에 img url 이 저장되어있다
@@ -64,24 +61,54 @@ public class Greating {
     }
 
     public static void main(String[] args) {
+        Document doc = connect();
         // 메인 요리
         String main = "#catecd_001007";
-        ArrayList<String> mainName = getName(main);
-        ArrayList<Integer> mainPrice = getPrice(main);
-        ArrayList<String> mainImg = getImg(main);
         // 국
         String soup = "#catecd_001006";
-        ArrayList<String> soupName = getName(soup);
-        ArrayList<Integer> soupPrice = getPrice(soup);
-        ArrayList<String> soupImg = getImg(soup);
+        // 무침
+        String seasonedSideDish = "#catecd_001003";
+        // 볶음
+        String friedSideDish = "#catecd_001009";
+        // 조림
+        String braisedSideDish = "#catecd_001002";
 
-//        for (int i = 0; i < soupName.size(); i++) {
-//            System.out.println("국 이름 : "+soupName.get(i));
-//            System.out.println("국 가격 : "+soupPrice.get(i));
-//            System.out.println("국 이미지 : "+ soupImg.get(i));
-//
-//        }
+        // 각 요리 별로 메서드들을 호출하여 ArrayList 로 저장된 정보를 갖고 올 수 있다
+        /*
+        ArrayList<String> 음식이름 = getName(페이지명, doc);
+        ArrayList<String> 음식정보 = getSub(페이지명, doc);
+        ArrayList<Integer> 음식가격 = getPrice(페이지명, doc);
+        ArrayList<String> 음식이미지 = getImg(페이지명, doc);
+         */
 
+
+        // 반찬 (무침, 볶음, 조림)
+        // 조림
+        ArrayList<String> bsName = getName(braisedSideDish, doc);
+        ArrayList<Integer> bsPrice = getPrice(braisedSideDish, doc);
+        ArrayList<String> bsSub = getSub(braisedSideDish,doc);
+        ArrayList<String> bsImg = getImg(braisedSideDish,doc);
+        // 무침
+        ArrayList<String> ssName = getName(seasonedSideDish, doc);
+        ArrayList<Integer> ssPrice = getPrice(seasonedSideDish,doc);
+        ArrayList<String> ssSub = getSub(seasonedSideDish,doc);
+        ArrayList<String> ssImg = getImg(seasonedSideDish,doc);
+        // 볶음
+        ArrayList<String> fsName = getName(friedSideDish,doc);
+        ArrayList<Integer> fsPrice = getPrice(friedSideDish,doc);
+        ArrayList<String> fsSub = getSub(friedSideDish,doc);
+        ArrayList<String> fsImg = getImg(friedSideDish, doc);
+        // 테스트
+        for (int i = 0; i < bsName.size(); i++) { // 어차피 모두 동일한 사이즈이므로 아무거나 해도 상관없음
+            System.out.println("반찬 번호 : "+(i+1));
+            System.out.println("반찬 이름 : "+bsName.get(i));
+            System.out.println("반찬 설명 : "+bsSub.get(i));
+            System.out.println("반찬 가격 : "+bsPrice.get(i));
+            System.out.println("반찬 이미지 : "+ bsImg.get(i));
+            System.out.println("=========================================================================");
+        }
+
+        // product type 를 3개로 분류 할 수 있음 : 국, 반찬, 메인
     }
 
 }
