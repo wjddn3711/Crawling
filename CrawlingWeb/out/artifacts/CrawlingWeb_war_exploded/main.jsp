@@ -30,7 +30,6 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
                         <ul>
                             <li><a href="main.do">Home</a></li>
                             <li><a href="learn.jsp">Learn More</a></li>
-                            <li><a href="elements.html">Elements</a></li>
                             <mytag:login/>
                             <mytag:productList/>
                         </ul>
@@ -48,7 +47,7 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
                 All clothes info <br />
                 provided by <a href="https://store.musinsa.com/app/">Musinsa</a>.</p>
             <ul class="actions special">
-                <li><a href="new.jsp" class="button primary">Sign-Up</a></li>
+                <mytag:go/>
                 <%--        회원가입 페이지로 이동--%>
             </ul>
         </div>
@@ -92,7 +91,7 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
                 <p>Learn more 를 통해 과정을 살펴보세요</p>
             </header>
             <ul class="actions stacked">
-                <li><a href="new.jsp" class="button fit primary">Sign-Up</a></li>
+                <mytag:go/>
                 <li><a href="learn.jsp" class="button fit">Learn More</a></li>
             </ul>
         </div>

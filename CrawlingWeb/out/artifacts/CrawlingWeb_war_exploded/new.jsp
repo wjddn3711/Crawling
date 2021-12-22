@@ -37,7 +37,6 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
                         <ul>
                             <li><a href="main.do">Home</a></li>
                             <li><a href="learn.jsp">Learn More</a></li>
-                            <li><a href="elements.html">Elements</a></li>
                             <mytag:login/>
                             <mytag:productList/>
                         </ul>
