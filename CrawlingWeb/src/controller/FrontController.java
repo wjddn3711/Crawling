@@ -1,6 +1,8 @@
 package controller;
 
 import controller.common.ActionForward;
+import controller.product.ProductListAction;
+import controller.product.ProductSearchAction;
 import controller.users.LoginAction;
 import controller.users.LogoutAction;
 import controller.users.NewAction;
@@ -57,6 +59,21 @@ public class FrontController extends HttpServlet {
                 forward = new LogoutAction().execute(request, response);
             }catch (Exception e){
                 System.out.println("로그아웃 진행중 문제 발생!");
+            }
+        }
+        else if(command.equals("productList")){
+            try{
+                forward = new ProductListAction().execute(request, response);
+            }catch (Exception e){
+                System.out.println("상품리스트 진행중 문제 발생!");
+            }
+        }
+        else if(command.equals("search")){
+            try{
+                System.out.println("서칭");
+                forward = new ProductSearchAction().execute(request, response);
+            }catch (Exception e){
+                System.out.println("상품리스트 서칭 진행중 문제 발생!");
             }
         }
 

@@ -1,3 +1,5 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="mytag" tagdir="/WEB-INF/tags" %>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -21,11 +23,10 @@
                     <a href="#menu" class="menuToggle"><span>Menu</span></a>
                     <div id="menu">
                         <ul>
-                            <li><a href="index.jsp">Home</a></li>
-                            <li><a href="learn.html">Learn More</a></li>
+                            <li><a href="main.do">Home</a></li>
+                            <li><a href="learn.jsp">Learn More</a></li>
                             <li><a href="elements.html">Elements</a></li>
-                            <li><a href="#">Sign Up</a></li>
-                            <li><a href="#">Log In</a></li>
+                            <mytag:login/>
                         </ul>
                     </div>
                 </li>
@@ -36,7 +37,7 @@
     <!-- Main -->
     <article id="main">
         <header>
-            <h2>크롤링 설명서</h2>
+            <h2>크롤링 설계서</h2>
             <p>자바 기반의 jsoup을 활용한 웹 크롤링</p>
         </header>
         <section class="wrapper style5">

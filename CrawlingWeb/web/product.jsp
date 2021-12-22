@@ -1,5 +1,13 @@
+<%--
+  Created by IntelliJ IDEA.
+  User: jungwoo
+  Date: 2021/12/15
+  Time: 3:24 오후
+  To change this template use File | Settings | File Templates.
+--%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ taglib prefix="mytag" tagdir="/WEB-INF/tags" %>>
+<%@ taglib prefix="mytag" tagdir="/WEB-INF/tags" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE HTML>
 <!--
 Spectral by HTML5 UP
@@ -8,20 +16,20 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
 -->
 <html>
 <head>
-    <title>FashCom</title>
+    <title>Elements - Spectral by HTML5 UP</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     <link rel="stylesheet" href="assets/css/main.css" />
     <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 </head>
-<body class="landing is-preload">
+<body class="is-preload">
 
 <!-- Page Wrapper -->
 <div id="page-wrapper">
 
     <!-- Header -->
     <header id="header">
-        <h1><a href="index.jsp">FASHCOM</a></h1>
+        <h1><a href="main.do">FASHCOM</a></h1>
         <nav id="nav">
             <ul>
                 <li class="special">
@@ -40,63 +48,52 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
         </nav>
     </header>
 
-    <!-- Banner -->
-    <section id="banner">
-        <div class="inner">
-            <h2>fashcom</h2>
-            <p>Find Most Suitable suit,<br />
-                All clothes info <br />
-                provided by <a href="https://store.musinsa.com/app/">Musinsa</a>.</p>
-            <ul class="actions special">
-                <li><a href="new.jsp" class="button primary">Sign-Up</a></li>
-                <%--        회원가입 페이지로 이동--%>
-            </ul>
-        </div>
-        <a href="#three" class="more scrolly">Learn More</a>
-    </section>
+    <!-- Main -->
+    <article id="main">
+        <header>
+            <h2>Fashcom</h2>
+            <p>Musinsa 크롤링 리스트</p>
+        </header>
 
-
-    <!-- Three -->
-    <section id="three" class="wrapper style3 special">
-        <div class="inner">
-            <header class="major">
-                <h2>Used Stack</h2>
-                <p>자바 기반의 jsoup을 활용한 웹 크롤링을 이용하여 현재 탑 랭킹 의류들을 제공합니다</p>
-            </header>
-            <ul class="features">
-                <li class="icon fa-paper-plane">
-                    <h3>Server</h3>
-                    <p>Tomcat 9.0.54</p>
-                </li>
-                <li class="icon solid fa-laptop">
-                    <h3>Used Libraries</h3>
-                    <p>mysql-connector-java-5.1<br>jsoup-1.14.3<br>apache-tomcat-9.0.54</p>
-                </li>
-                <li class="icon solid fa-code">
-                    <h3>Code</h3>
-                    <p>Java 기반의 JSP</p>
-                </li>
-                <li class="icon fa-flag">
-                    <h3>Goal</h3>
-                    <p>다른 쇼핑몰들의 크롤링을 통하여<br> 종합 랭킹을 구현</p>
-                </li>
-            </ul>
-        </div>
-    </section>
-
-    <!-- CTA -->
-    <section id="cta" class="wrapper style4">
-        <div class="inner">
-            <header>
-                <h2>made process</h2>
-                <p>Learn more 를 통해 과정을 살펴보세요</p>
-            </header>
-            <ul class="actions stacked">
-                <li><a href="new.jsp" class="button fit primary">Sign-Up</a></li>
-                <li><a href="learn.jsp" class="button fit">Learn More</a></li>
-            </ul>
-        </div>
-    </section>
+        <section class="wrapper style5">
+            <div class="inner">
+                <form method="post" action="search.do">
+                    <div class="row gtr-uniform">
+                        <div class="col-6 col-12-xsmall">
+                            <input type="text" name="keyword" placeholder="검색어를 입력하세요" required/>
+                        </div>
+                        <div class="col-6 col-12-xsmall">
+                            <input type="submit" value="search">
+                        </div>
+                    </div>
+                </form>
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th >Ranking</th>
+                                <th >Name</th>
+                                <th >Brand</th>
+                                <th >Price</th>
+                                <th >image</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <c:forEach items="${datas}" var="v">
+                                <tr>
+                                    <td>${v.ranking}</td>
+                                    <td>${v.name}</td>
+                                    <td>${v.brand}</td>
+                                    <td>${v.price}</td>
+                                    <td><img src="${v.image}"></td>
+                                </tr>
+                            </c:forEach>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+    </article>
 
     <!-- Footer -->
     <footer id="footer">

@@ -1,18 +1,20 @@
-package model.board;
+package model.product;
 
-public class BoardVO {
+public class ProductVO {
     private int ranking;
     private String name;
     private String brand;
     private int price;
+    private String image;
 
     @Override
     public String toString() {
-        return "BoardVO{" +
+        return "ProductVO{" +
                 "ranking=" + ranking +
                 ", name='" + name + '\'' +
                 ", brand='" + brand + '\'' +
                 ", price=" + price +
+                ", image='" + image + '\'' +
                 '}';
     }
 
@@ -32,6 +34,10 @@ public class BoardVO {
         this.price = price;
     }
 
+    public void setImage(String image) {
+        this.image = image;
+    }
+
     public int getRanking() {
         return ranking;
     }
@@ -46,5 +52,9 @@ public class BoardVO {
 
     public int getPrice() {
         return price;
+    }
+
+    public String getImage() {
+        return image;
     }
 }

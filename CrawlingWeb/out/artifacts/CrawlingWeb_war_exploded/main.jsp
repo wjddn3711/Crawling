@@ -29,9 +29,10 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
                     <div id="menu">
                         <ul>
                             <li><a href="main.do">Home</a></li>
-                            <li><a href="learn.html">Learn More</a></li>
+                            <li><a href="learn.jsp">Learn More</a></li>
                             <li><a href="elements.html">Elements</a></li>
                             <mytag:login/>
+                            <mytag:productList/>
                         </ul>
                     </div>
                 </li>
@@ -92,7 +93,7 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
             </header>
             <ul class="actions stacked">
                 <li><a href="new.jsp" class="button fit primary">Sign-Up</a></li>
-                <li><a href="learn.html" class="button fit">Learn More</a></li>
+                <li><a href="learn.jsp" class="button fit">Learn More</a></li>
             </ul>
         </div>
     </section>

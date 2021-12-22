@@ -2370,6 +2370,9 @@ input, select, textarea {
 		table thead {
 			border-bottom: solid 2px #fff;
 		}
+table thead th{
+	text-align: center;
+}
 
 		table tfoot {
 			border-top: solid 2px #fff;
